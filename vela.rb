@@ -12,8 +12,8 @@ class Vela < Formula
 
   desc "Runtime observability CLI for AI agents"
   homepage "https://vela.wtf"
-  url "https://files.pythonhosted.org/packages/source/v/vela-cli/vela_cli-0.1.1.tar.gz"
-  sha256 "78d656afd3d4d3e02060cc19cbd3fd123b94f7235d2edc90344844724428b46c"
+  url "https://files.pythonhosted.org/packages/source/v/vela-cli/vela_cli-0.1.0.tar.gz"
+  sha256 "337e9de67d7e0135fdd05ab55d074418b69ca273811ab3cfaaf97e358de209b1"
   license "MIT"
 
   # HEAD install from GitHub (useful before first PyPI release)
@@ -50,7 +50,7 @@ class Vela < Formula
   end
 
   test do
-    assert_match "0.1.1", shell_output("#{bin}/vela --version")
+    assert_match "0.1.0", shell_output("#{bin}/vela --version")
     assert_match "login", shell_output("#{bin}/vela --help")
   end
 end
