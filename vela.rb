@@ -12,8 +12,8 @@ class Vela < Formula
 
   desc "Runtime observability CLI for AI agents"
   homepage "https://vela.wtf"
-  url "https://files.pythonhosted.org/packages/source/v/vela-cli/vela_cli-0.1.0.tar.gz"
-  sha256 "337e9de67d7e0135fdd05ab55d074418b69ca273811ab3cfaaf97e358de209b1"
+  url "https://files.pythonhosted.org/packages/source/v/vela-cli/vela_cli-0.1.1.tar.gz"
+  sha256 "78d656afd3d4d3e02060cc19cbd3fd123b94f7235d2edc90344844724428b46c"
   license "MIT"
 
   # HEAD install from GitHub (useful before first PyPI release)
@@ -39,13 +39,18 @@ class Vela < Formula
     sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
   end
 
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl"
+    sha256 "bf272323e553dfb2e87d9bfd225ca7b0f467b919d7bbd355436d3fd37cb0acd4"
+  end
+
   def install
     # Install into an isolated virtualenv managed by Homebrew
     virtualenv_install_with_resources
   end
 
   test do
-    assert_match "0.1.0", shell_output("#{bin}/vela --version")
+    assert_match "0.1.1", shell_output("#{bin}/vela --version")
     assert_match "login", shell_output("#{bin}/vela --help")
   end
 end
